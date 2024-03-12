@@ -1,0 +1,61 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Beryllium",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#paren-expression"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.beryllium",
+				"match": "\\b(fun|if|else|while|for|foreach|return|break|continue|var|val|global|import|include)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.beryllium",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.beryllium",
+					"match": "\\\\."
+				}
+			]
+		},
+		"reserved-words": {
+			"match": "\\b(puts|input|open|close|read|write)",
+			"name": "entity.name.function.member.beryllium"
+		},
+		"expression": {
+			"patterns": [
+				{ "include": "#reserved-words" },
+				{ "include": "#numbers" },
+				{ "include": "#paren-expression" },
+				{ "include": "#strings"}
+			]
+		},
+		"paren-expression": {
+			"patterns": [
+				{
+					"captures": {
+						"1": {
+							"name": "entity.name.function.beryllium"
+						}
+					},
+					"match": "\\b(\\w+)(?:\\s+([-a-zA-Z0-9_]+))?\\s*(\\()",
+					"name": "punctuation.definition.parameters.beryllium",
+					"patterns": [{"include": "#expression"}]
+				}
+			]
+		}
+	},
+	"scopeName": "source.beryllium"
+}
