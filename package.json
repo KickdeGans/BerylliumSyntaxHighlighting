@@ -1,0 +1,26 @@
+{
+  "name": "beryllium-syntax-highlighting",
+  "displayName": "beryllium Syntax Highlighting",
+  "description": "Syntax highlighting for the beryllium programming language",
+  "publisher": "Kick de Gans",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "beryllium",
+      "aliases": ["beryllium", "beryllium"],
+      "extensions": [".fn"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "beryllium",
+      "scopeName": "source.beryllium",
+      "path": "./syntaxes/beryllium.tmLanguage.json"
+    }]
+  }
+}
